@@ -25,9 +25,9 @@ architecture testbench of debouncer_tb is
 
   constant BOUNCE_PERIOD : time := 100 ns;
 
-  constant DEBOUNCE_TIME_1000NS       : time    := 1000 ns;
-  constant DEBOUNCE_CYCLES_1000NS     : natural := DEBOUNCE_TIME_1000NS / BOUNCE_PERIOD;
-  constant DEBOUNCE_CLK_CYCLES_1000NS : natural := DEBOUNCE_TIME_1000NS / CLK_PERIOD;
+  constant DEBOUNCE_TIME_1US       : time    := 1000 ns;
+  constant DEBOUNCE_CYCLES_1US     : natural := DEBOUNCE_TIME_1US / BOUNCE_PERIOD;
+  constant DEBOUNCE_CLK_CYCLES_1US : natural := DEBOUNCE_TIME_1US / CLK_PERIOD;
 
   constant DEBOUNCE_TIME_10US       : time    := 10 us;
   constant DEBOUNCE_CYCLES_10US     : natural := DEBOUNCE_TIME_10US / BOUNCE_PERIOD;
@@ -37,19 +37,19 @@ architecture testbench of debouncer_tb is
 
   constant DEBOUNCE_TIMES : time_array(0 to 1) :=
   (
-    DEBOUNCE_TIME_1000NS,
+    DEBOUNCE_TIME_1US,
     DEBOUNCE_TIME_10US
   );
 
   constant DEBOUNCE_CYCLES : natural_array(0 to 1) :=
   (
-    DEBOUNCE_CYCLES_1000NS,
+    DEBOUNCE_CYCLES_1US,
     DEBOUNCE_CYCLES_10US
   );
 
   constant DEBOUNCE_CLK_CYCLES : natural_array(0 to 1) :=
   (
-    DEBOUNCE_CLK_CYCLES_1000NS,
+    DEBOUNCE_CLK_CYCLES_1US,
     DEBOUNCE_CLK_CYCLES_10US
   );
 
@@ -154,7 +154,7 @@ begin
       -- initial-press debounce time is 0 (e.g., the button was pressed
       -- and released before the debounce time was up, or somehow settled
       -- in an unpressed state). In other words, make sure the debouncer
-      -- output stays high for the whole debounce time.
+      -- output stays high for the whole debounce time, .
       -- NOTE: this test relies on the fact that bouncer_tb = '0' right before
       -- running this procedure, that way the first toggle sets bouncer_tb = '1'.
       bounce_signal(bouncer_tb, BOUNCE_PERIOD, DEBOUNCE_CYCLES(debouncer_num), '0');
