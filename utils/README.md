@@ -6,7 +6,7 @@
 
 It also changes the shell prompt to indicate that you are in the arm cross-compiling environment.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Any time you need to compile a Linux kernel module or device tree, those environment variables need to be exported! If they aren't, you'll run into issues that might require recompiling the Linux kenrel
 
 ## Makefile
