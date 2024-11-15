@@ -68,7 +68,6 @@ dkms.conf
 *.qar
 *.qarlog
 *.qws
-*.qpf
 *.rpt
 *.smsg
 *.sof
@@ -98,11 +97,15 @@ db/
 incremental_db/
 output_files/
 work/
+quartus/**/simulation/
+*.tcl~
 
 # Questa files
 vsim.wlf
 *.cr.mti
 work/
+transcript
 
 
-
+# Vim swap files
+*.swp
